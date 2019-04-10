@@ -32,8 +32,8 @@ class Gameboard
             end
         end
 
-        puts "\nExact placements: #{correct_placement}."
-        puts "Correct colors: #{correct_color}"
+        puts "\nCorrect color, correct placement: #{correct_placement}."
+        puts "Correct color, but wrong placement: #{correct_color}"
         if correct_placement == 4
             @win = true
             @over = true
