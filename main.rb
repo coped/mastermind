@@ -32,7 +32,7 @@ class Gameboard
             end
         end
 
-        puts "\nCorrect color, correct placement: #{correct_placement}."
+        puts "\nCorrect color, correct placement: #{correct_placement}"
         puts "Correct color, but wrong placement: #{correct_color}"
         if correct_placement == 4
             @win = true
@@ -44,11 +44,13 @@ class Gameboard
     def end_result
         puts @win ? "\nCorrectly solved the code. You win!" : "\nYou ran out of turns and lost!."
     end
+
     private
 
     def reduce_turn
         @number_of_turns -= 1
         puts "\n#{@number_of_turns} turns left."
+        puts "----------------------------------------------------------"
         @over = true if @number_of_turns == 0
     end
 
