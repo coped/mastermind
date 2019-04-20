@@ -1,10 +1,9 @@
 class Gameboard
-    attr_reader :over
+    attr_reader :over, :secret_code
+
     def initialize
         @number_of_turns = 12
-        @secret_code = []
-        make_code
-        @secret_code
+        @secret_code = make_code
         @over = false
         @win = false
     end
@@ -55,8 +54,10 @@ class Gameboard
     end
 
     def make_code
-        @colors = ["purple", "blue", "green", "yellow", "orange", "red"]
-        4.times {@secret_code.push(@colors[rand(6)])}
+        code = []
+        colors = ["purple", "blue", "green", "yellow", "orange", "red"]
+        4.times {code.push(colors[rand(6)])}
+        code
     end
 end
 
@@ -80,3 +81,4 @@ until game.over
     game.check_code breaker.make_turn
 end
 game.end_result
+puts "Secret code: #{game.secret_code}"
